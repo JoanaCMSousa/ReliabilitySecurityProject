@@ -1,0 +1,8 @@
+
+//dar permissoes para ele ouvir a socket
+grant codeBase "file:bin/*"{
+	permission java.net.SocketPermission "*:23456", "connect";
+	permission myGit "*:1024-","accept"; //porque precisamos de accept?
+	permission java.io.FilePermission "<<ALL FILES>>", "read,write";
+};  //pensar se eh ALL FILES ou apenas a diretoria
+

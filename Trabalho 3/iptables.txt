@@ -1,0 +1,30 @@
+
+
+
+sudo /sbin/iptables -A INPUT -p icmp --icmp-type 8 -s 10.101.149.0/23 -j ACCEPT
+sudo /sbin/iptables -A INPUT -p tcp -d 10.101.149.55 --dport 23456 -j ACCEPT
+
+sudo /sbin/iptables -A OUTPUT -p icmp --icmp-type 8 -d gcc -j ACCEPT
+
+sudo /sbin/iptables -A INPUT -p tcp -s 10.101.151.255/255.255.254.0 --sport 22 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+sudo /sbin/iptables -A INPUT -s 10.101.253.11 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.253.12 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.253.13 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.253.14 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.253.15 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.253.16 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.249.63 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.85.6 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.85.138 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.85.18 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.148.1 -p icmp -j ACCEPT
+sudo /sbin/iptables -A INPUT -s 10.101.85.134 -p icmp -j ACCEPT
+
+
+sudo /sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+sudo /sbin/iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+sudo /sbin/iptables -P INPUT DROP
+sudo /sbin/iptables -P OUTPUT DROP
